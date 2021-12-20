@@ -1,0 +1,27 @@
+{
+  "name": "smart_budget",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhmdxx5/Smart_Budget.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mhmdxx5/Smart_Budget/issues"
+  },
+  "homepage": "https://github.com/mhmdxx5/Smart_Budget#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "font-awesome": "^4.7.0",
+    "mongoose": "^6.1.2",
+    "morgan": "^1.10.0"
+  }
+}
