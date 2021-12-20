@@ -1,0 +1,106 @@
+@import url('../node_modules/font-awesome/css/font-awesome.min.css');
+*{
+  margin: 0px;
+  padding: 0px;	
+  font-family:Arial; 
+}
+section{
+  display: block;
+}
+body{
+  background-color: #2A2E30;
+  min-width: 100%;
+}
+header{
+  display:flex;
+}
+#logo{
+  background:url(../images/logo.png) no-repeat center;
+  height: 35px;
+  width: 35px;
+}
+img{
+  max-width: 100%;
+}
+
+nav a{
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+ 
+nav{
+  min-height: 10vh;
+  background-color: #3F4243;
+}
+.category-menu{
+  background-color:#4B4C4E;color: #fff;
+    min-height: 90vh;
+}
+#drawChart{
+    height: 300px;
+}
+.list-group-item{
+  color: #fff;
+}
+.register{
+  background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+  color: #fff;
+  text-align: center;
+}
+.register-menu{
+  background: #f8f9fa;
+  margin: auto;
+  min-height: 600px;
+  padding: 10px 50px 50px 50px;
+  border-top-left-radius: 10% 10%;
+  border-top-right-radius: 10% 10%;
+}
+.register-menu input{
+  margin-bottom: 20px;
+}
+.register-menu select{
+  margin-bottom: 34px;
+}
+.btnRegister{
+  float: right;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 2%;
+  background: #0062cc;
+  color: #fff;
+  font-weight: 600;
+  width: 100px;
+  cursor: pointer;
+}
+.register .nav-tabs{
+ 
+  border: none;
+  background: #0062cc;
+  border-radius: 1.5rem;
+  width: 28%;
+  float: right;
+}
+.register .nav-tabs .nav-link{
+  padding: 2%;
+  height: 34px;
+  font-weight: 600;
+  color: #fff;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover{
+  border: none;
+}
+.register .nav-tabs .nav-link.active{
+  width: 100px;
+  color: #0062cc;
+  border: 2px solid #0062cc;
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+.register-heading{
+  color: #495057;
+}

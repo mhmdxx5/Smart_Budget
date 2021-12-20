@@ -6,12 +6,12 @@ exports.UsersController = {
             .then(Users => { res.json(Users); })
             .catch(err => console.log(`Error Getting user from db:${err}`));
     },
-    
+
     deleteUser(req, res) {
         Users.deleteOne({ id: req.params.id })
             .then((result) => {
-                if (result.deletedCount > 0) {res.send(`user--${req.params.id}--deleted`);}
-                else {res.status(400).res.send(`user--${req.params.id}--not in the data`);}
+                if (result.deletedCount > 0) { res.send(`user--${req.params.id}--deleted`); }
+                else { res.status(400).res.send(`user--${req.params.id}--not in the data`); }
             })
             .catch(() => res.status(400).send(`Error user ${req.params.id} not deleted`))
     },
@@ -22,41 +22,39 @@ exports.UsersController = {
                 if (user) {
                     res.json(user);
                 }
-                else{
+                else {
                     res.status(400).json("Wrong user id please enter correct id");
                 }
-
             })
             .catch(err => console.log(`Error Getting user from db:${err}`));
     },
 
-    updateUser(req,res){
-        Users.updateOne({ id: req.params.id },req.body)
-        .then((result) => {
-            if (result.matchedCount > 0){res.send(`user ${req.params.id} Updated!`);}
-            else{res.status(400).send(`user ${req.params.id} Not in The DB!`);}
-        })
-        .catch((err) => res.status(400).json(err));
+    updateUser(req, res) {
+        Users.updateOne({ id: req.params.id }, req.body)
+            .then((result) => {
+                if (result.matchedCount > 0) { res.send(`user ${req.params.id} Updated!`); }
+                else { res.status(400).send(`user ${req.params.id} Not in The DB!`); }
+            })
+            .catch((err) => res.status(400).json(err));
     },
 
-    postUser(req,res){//register
-        const {FullName,Password, Email, Role,BudgetLimit,Income} = req.body;
-        Users.findOne().sort('-Id').exec((err,user)=>{
-            Users.findOne().sort('-IdFamily').exec((err,family)=>{
-                const newuser=new Users({
-                    "Id":user.Id+1,
+    postUser(req, res) {//register
+        const { FullName, Password, Email, Role, BudgetLimit, Income } = req.body;
+        Users.findOne().sort('-Id').exec((err, user) => {
+            Users.findOne().sort('-IdFamily').exec((err, family) => {
+                const newuser = new Users({
+                    "Id": user.Id + 1,
                     "FullName": FullName,
                     "Password": Password,
                     "BudgetLimit": BudgetLimit,
                     "Email": Email,
                     "Role": Role,
-                    "Income":Income,
-                    "IdFamily":family.IdFamily+1
-                    
-            });
-            const result=newuser.save();
-            if(result){res.json(newuser)}
-            else{res.status(404).send("error saving a user");}
+                    "Income": Income,
+                    "IdFamily": family.IdFamily + 1
+                });
+                const result = newuser.save();
+                if (result) { res.json(newuser) }
+                else { res.status(404).send("error saving a user"); }
             });
         });
     }
