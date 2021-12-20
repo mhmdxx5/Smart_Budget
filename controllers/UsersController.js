@@ -40,16 +40,17 @@ exports.UsersController = {
     },
 
     postUser(req,res){//register
-        const {fullName,Password, Email, role,BudgetLimit } = req.body;
-        Users.findOne().sort('-id').exec((err,user)=>{
+        const {FullName,Password, Email, Role,BudgetLimit,Income} = req.body;
+        Users.findOne().sort('-Id').exec((err,user)=>{
             Users.findOne().sort('-IdFamily').exec((err,family)=>{
                 const newuser=new Users({
-                    "id":user.id+1,
-                    "fullName": fullName,
+                    "Id":user.Id+1,
+                    "FullName": FullName,
                     "Password": Password,
                     "BudgetLimit": BudgetLimit,
                     "Email": Email,
-                    "role": role,
+                    "Role": Role,
+                    "Income":Income,
                     "IdFamily":family.IdFamily+1
                     
             });
