@@ -10,7 +10,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>Register</title>
 </head>
 <body class="register ">
     <div class="mt-5">
@@ -18,20 +18,19 @@
         <img src="images/family.svg" alt="family" title="family" />
     </div>
     <div class="register-menu">
-        <from class="register-form">
-            <input type="text" class="form-control" placeholder="Full Name *" value="" />
-            <input type="password" class="form-control" placeholder="Password *" value="" />
-            <input type="email" class="form-control" placeholder="Your Email *" value="" />
-            <input type="number" class="form-control" placeholder="Your BudgetLimit *" value="" />
-            <input type="number" class="form-control" placeholder="Your Income *" value="" />
-            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control"
-                placeholder="Your Phone *" value="" />
+        <form class="register-form" action="http://localhost:3000/api/Users" method="post">
+            <input type="text" class="form-control" placeholder="Full Name *" name="FullName" value="" />
+            <input type="password" class="form-control" placeholder="Password *" name="Password" value="" />
+            <input type="email" class="form-control" placeholder="Your Email *" name="Email" value="" />
+            <input type="number" class="form-control" placeholder="Your BudgetLimit *" name="BudgetLimit" value="" />
+            <input type="number" class="form-control" placeholder="Your Income *" name="Income" value="" />
             <select class="form-control">
                 <option class="hidden" selected disabled>Please select your status</option>
                 <option>Parent</option>
                 <option>Child</option>
             </select>
             <input type="submit" class="btnRegister" value="Register" />
-    </div>
+        </form>
+        </div>
 </body>
 </html>
