@@ -10,15 +10,15 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
-    <title>Register</title>
+    <title>add family</title>
 </head>
 <body class="register ">
     <div class="mt-5">
-        <h3 class="mb-3">Welcome to Smart Budget </h3>
+        <h3 class="mb-3">add family </h3>
         <img src="images/family.svg" alt="family" title="family" />
     </div>
     <div class="register-menu">
-        <form class="register-form" action="http://localhost:3000/api/Users" method="post">
+        <form class="register-form" action="http://localhost:3000/api/Users/family" method="post">
             <input type="text" class="form-control" placeholder="Full Name *" name="FullName" value="" />
             <input type="password" class="form-control" placeholder="Password *" name="Password" value="" />
             <input type="email" class="form-control" placeholder="Your Email *" name="Email" value="" />
@@ -29,7 +29,7 @@
                 <option>Parent</option>
                 <option>Child</option>
             </select>
-            <input type="submit" class="btnRegister" value="Register" />
+            <input type="submit" class="btnRegister" value="add family" />
         </form>
         </div>
 </body>
