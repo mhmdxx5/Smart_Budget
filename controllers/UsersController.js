@@ -57,5 +57,26 @@ exports.UsersController = {
                 else { res.status(404).send("error saving a user"); }
             });
         });
+    },
+    addfamily(req, res) {//register
+        const { FullName, Password, Email, Role, BudgetLimit, Income } = req.body;
+        let IdFamily=req.headers.idfamily;
+        Users.findOne().sort('-Id').exec((err, user) => {
+            Users.findOne().sort('-IdFamily').exec((err, family) => {
+                const newuser = new Users({
+                    "Id": user.Id + 1,
+                    "FullName": FullName,
+                    "Password": Password,
+                    "BudgetLimit": BudgetLimit,
+                    "Email": Email,
+                    "Role": Role,
+                    "Income": Income,
+                    "IdFamily": IdFamily
+                });
+                const result = newuser.save();
+                if (result) { res.json(newuser) }
+                else { res.status(404).send("error saving a user"); }
+            });
+        });
     }
 }
