@@ -53,7 +53,8 @@ exports.UsersController = {
                     "IdFamily": family.IdFamily + 1
                 });
                 const result = newuser.save();
-                if (result) { res.json(newuser) }
+                if (result) {
+                    res.redirect('http://127.0.0.1:5501/client/homepage.html?id='+newuser.IdFamily)}
                 else { res.status(404).send("error saving a user"); }
             });
         });
