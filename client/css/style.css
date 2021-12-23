@@ -1,4 +1,4 @@
-@import url('../node_modules/font-awesome/css/font-awesome.min.css');
+@import url('../../node_modules/font-awesome/css/font-awesome.min.css');
 *{
   margin: 0px;
   padding: 0px;	
@@ -37,6 +37,7 @@ nav{
   background-color: #3F4243;
 }
 .category-menu{
+
   background-color:#4B4C4E;color: #fff;
     min-height: 90vh;
 }
@@ -45,6 +46,8 @@ nav{
 }
 .list-group-item{
   color: #fff;
+  margin: auto;
+  width: 50vh;
 }
 .register{
   background: -webkit-linear-gradient(left, #3931af, #00c6ff);
@@ -55,6 +58,7 @@ nav{
   background: #f8f9fa;
   margin: auto;
   min-height: 600px;
+  width: 50vh;
   padding: 10px 50px 50px 50px;
   border-top-left-radius: 10% 10%;
   border-top-right-radius: 10% 10%;
