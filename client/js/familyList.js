@@ -49,11 +49,8 @@ $(document).on('click', '.fa-trash', ()=> {
     $.ajax({
         method: "delete",
         url:`https://first-ex1-2.herokuapp.com/api/Users/${idremove}`,
-        success: () => {
-            window.location.href = `http://127.0.0.1:5501/client/familyUpdate.html?id=${id}`;
-        },
-        error: function () {
-            alert('error happened');
+        success: (deleteresult) => {
+            location.href = `http://127.0.0.1:5501/client/familyUpdate.html?id=${id}`;
         }
     });
 });
