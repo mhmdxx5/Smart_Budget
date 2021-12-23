@@ -8,9 +8,10 @@ exports.UsersController = {
     },
 
     deleteUser(req, res) {
-        Users.deleteOne({ Id: req.params.id })
-            .then((result) => {
-                res.send(`user--${req.params.id}--deleted`);
+        Users.deleteOne({ Id: req.params.id }) 
+                .then((result) => {
+                if (result.deletedCount > 0) { res.status(200).res.send(`user--${req.params.id}--deleted`); }
+                else { res.status(400).res.send(`user--${req.params.id}--not in the data`); }
             })
             .catch(() => res.status(400).send(`Error user ${req.params.id} not deleted`))
     },
@@ -27,7 +28,7 @@ exports.UsersController = {
             })
             .catch(err => console.log(`Error Getting user from db:${err}`));
     },
-
+    
     getFamily(req, res) {
         Users.find({})
             .then(Users => { res.json(Users.filter(users => users.IdFamily == req.params.id)); })
