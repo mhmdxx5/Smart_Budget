@@ -18,7 +18,10 @@ function recreateFamilyTable(familyMember) {
             '<th scope="row">' + family.FullName + '</th>' +
             '<td>' + family.Email + '</td>' +
             '<td>' + family.BudgetLimit + '</td>' +
+            '<td><button class="btn"><i class="fa fa-edit"></i></button></td>'+
+            '<td><button class="btn"><i class="fa fa-trash"></i></button></td>'+
             '</tr>'
+            
         );
     });
 }

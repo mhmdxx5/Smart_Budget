@@ -30,7 +30,7 @@ exports.UsersController = {
     },
     getFamily(req, res) {
         
-        Users.find({},{ Idfamily: req.params.id })
+        Users.findOne({idfamily: req.params.id})
             .then((users) => {
                 if (users) {
                     console.log(users);
@@ -67,7 +67,7 @@ exports.UsersController = {
                 });
                 const result = newuser.save();
                 if (result) {
-                    res.json(user.IdFamily);
+                    res.json(newuser.IdFamily);
                 }
                 else { res.status(404).send("error saving a user"); }
             });
