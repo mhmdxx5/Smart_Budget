@@ -60,10 +60,9 @@ exports.UsersController = {
         });
     },
     addfamily(req, res) {//register
-        const { FullName, Password, Email, Role, BudgetLimit, Income } = req.body;
-        let IdFamily=req.headers.idfamily;
+        const { FullName, Password, Email, Role, BudgetLimit, Income,Idfamily } = req.body;
+        console.log(req.body)
         Users.findOne().sort('-Id').exec((err, user) => {
-            Users.findOne().sort('-IdFamily').exec((err, family) => {
                 const newuser = new Users({
                     "Id": user.Id + 1,
                     "FullName": FullName,
@@ -72,12 +71,13 @@ exports.UsersController = {
                     "Email": Email,
                     "Role": Role,
                     "Income": Income,
-                    "IdFamily": IdFamily
+                    "IdFamily": Idfamily
                 });
                 const result = newuser.save();
-                if (result) { res.json(newuser) }
+                if (result) { 
+                    res.redirect('http://127.0.0.1:5501/client/homepage.html?id='+newuser.IdFamily)
+                }
                 else { res.status(404).send("error saving a user"); }
-            });
         });
     }
 }
