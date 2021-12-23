@@ -112,9 +112,11 @@ nav{
   color: #495057;
 }
 .homepage{
-  background:url(../images/homeimg.png) no-repeat center ;
+  background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+  color: #fff;
   background-size: cover;
 display: flex;
+
 justify-content: center;  
 
 }
@@ -122,12 +124,8 @@ justify-content: center;
   height: 25vh;
   width: 50vh;
   text-align: center;
-  padding-top: 120px;
 }
-.homeh1{
-  font-size: 50px;
-  color:rgb(0, 0, 0)
-}
+
 .list-group>*{
 padding: 20px;
 margin-top: 20px;
