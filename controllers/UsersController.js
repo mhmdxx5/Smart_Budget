@@ -75,8 +75,9 @@ exports.UsersController = {
                 });
                 const result = newuser.save();
                 if (result) { 
-                    res.redirect('http://127.0.0.1:5501/client/homepage.html?id='+newuser.IdFamily)
+                    res.json(user);
                 }
+                
                 else { res.status(404).send("error saving a user"); }
         });
     }
