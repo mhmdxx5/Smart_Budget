@@ -24,10 +24,10 @@
             <input type="email" class="form-control" placeholder="Your Email *" name="Email" value="" />
             <input type="number" class="form-control" placeholder="Your BudgetLimit *" name="BudgetLimit" value="" />
             <input type="number" class="form-control" placeholder="Your Income *" name="Income" value="" />
-            <select class="form-control">
-                <option class="hidden" name="Role" selected disabled>Please select your status</option>
-                <option>Parent</option>
-                <option>Child</option>
+            <label class="text-secondary">Please select your status</label>
+            <select id="Role" name="Role"  class="form-control">
+                <option value="Parent">Parent</option>
+                <option value="Child">Child</option>
             </select>
             <input type="submit" class="btnRegister"  value="Register" >submiit</button>
         </form>
