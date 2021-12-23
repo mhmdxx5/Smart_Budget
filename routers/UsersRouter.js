@@ -3,6 +3,7 @@ const { UsersController } = require('../controllers/UsersController')
 const UsersRouter = new Router();
 UsersRouter.get('/', UsersController.getUsers);
 UsersRouter.get('/:id', UsersController.getUser);
+UsersRouter.get('/family/:id', UsersController.getFamily);
 UsersRouter.post('/', UsersController.postUser);
 UsersRouter.post('/family', UsersController.addfamily);
 UsersRouter.put('/:id', UsersController.updateUser);

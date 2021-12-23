@@ -17,41 +17,33 @@ body{
 header{
   display:flex;
 }
-#logo{
-  background:url(../images/logo.png) no-repeat center;
-  height: 35px;
-  width: 35px;
-}
 img{
   max-width: 100%;
 }
-
 nav a{
   color: #fff;
   font-weight: bold;
   font-size: 12px;
   text-decoration: none;
 }
-
- 
 nav{
   min-height: 10vh;
   background-color: #3F4243;
 }
-.category-menu{
-
+.category-menu,.table{
   background-color:#4B4C4E;color: #fff;
     min-height: 90vh;
 }
+
 #drawChart{
     height: 300px;
 }
-.list-group-item{
+.list-group-item,.table{
   color: #fff;
   margin: auto;
   width: 50vh;
 }
-.register{
+.register,.bg{
   background: -webkit-linear-gradient(left, #3931af, #00c6ff);
   color: #fff;
   text-align: center;

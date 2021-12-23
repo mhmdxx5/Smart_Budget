@@ -28,7 +28,20 @@ exports.UsersController = {
             })
             .catch(err => console.log(`Error Getting user from db:${err}`));
     },
-
+    getFamily(req, res) {
+        
+        Users.find({},{ Idfamily: req.params.id })
+            .then((users) => {
+                if (users) {
+                    console.log(users);
+                    res.json(users);
+                }
+                else {
+                    res.status(400).json("Wrong user id please enter correct id");
+                }
+            })
+            .catch(err => console.log(`Error Getting user from db:${err}`));
+    },
     updateUser(req, res) {
         Users.updateOne({ id: req.params.id }, req.body)
             .then((result) => {
@@ -38,7 +51,7 @@ exports.UsersController = {
             .catch((err) => res.status(400).json(err));
     },
 
-    postUser(req, res) {//register
+    postUser(req, res) {//register      
         const { FullName, Password, Email, Role, BudgetLimit, Income } = req.body;
         Users.findOne().sort('-Id').exec((err, user) => {
             Users.findOne().sort('-IdFamily').exec((err, family) => {
@@ -54,7 +67,7 @@ exports.UsersController = {
                 });
                 const result = newuser.save();
                 if (result) {
-                    res.redirect('http://127.0.0.1:5501/client/homepage.html?id=' + newuser.IdFamily)
+                    res.json(user.IdFamily);
                 }
                 else { res.status(404).send("error saving a user"); }
             });
@@ -62,7 +75,7 @@ exports.UsersController = {
     },
     addfamily(req, res) {//register
         const { FullName, Password, Email, Role, BudgetLimit, Income, Idfamily } = req.body;
-        console.log(req.body)
+
         Users.findOne().sort('-Id').exec((err, user) => {
             const newuser = new Users({
                 "Id": user.Id + 1,
