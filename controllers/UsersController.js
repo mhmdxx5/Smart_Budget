@@ -8,10 +8,8 @@ exports.UsersController = {
     },
 
     deleteUser(req, res) {
-        console.log(req.params.id)
-        Users.deleteOne({ id: req.params.id })
-        
-            .then((result) => {
+        Users.deleteOne({ Id: req.params.id }) 
+                .then((result) => {
                 if (result.deletedCount > 0) { res.send(`user--${req.params.id}--deleted`); }
                 else { res.status(400).res.send(`user--${req.params.id}--not in the data`); }
             })
@@ -19,7 +17,7 @@ exports.UsersController = {
     },
 
     getUser(req, res) {
-        Users.findOne({ id: req.params.id })
+        Users.findOne({ Id: req.params.id })
             .then((user) => {
                 if (user) {
                     res.json(user);
@@ -38,7 +36,7 @@ exports.UsersController = {
     },
 
     updateUser(req, res) {
-        Users.updateOne({ id: req.params.id }, req.body)
+        Users.updateOne({ Id: req.params.id }, req.body)
             .then((result) => {
                 if (result.matchedCount > 0) { res.send(`user ${req.params.id} Updated!`); }
                 else { res.status(400).send(`user ${req.params.id} Not in The DB!`); }
