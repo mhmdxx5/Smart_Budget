@@ -54,31 +54,31 @@ exports.UsersController = {
                 });
                 const result = newuser.save();
                 if (result) {
-                    res.redirect('http://127.0.0.1:5501/client/homepage.html?id='+newuser.IdFamily)}
+                    res.redirect('http://127.0.0.1:5501/client/homepage.html?id=' + newuser.IdFamily)
+                }
                 else { res.status(404).send("error saving a user"); }
             });
         });
     },
     addfamily(req, res) {//register
-        const { FullName, Password, Email, Role, BudgetLimit, Income,Idfamily } = req.body;
+        const { FullName, Password, Email, Role, BudgetLimit, Income, Idfamily } = req.body;
         console.log(req.body)
         Users.findOne().sort('-Id').exec((err, user) => {
-                const newuser = new Users({
-                    "Id": user.Id + 1,
-                    "FullName": FullName,
-                    "Password": Password,
-                    "BudgetLimit": BudgetLimit,
-                    "Email": Email,
-                    "Role": Role,
-                    "Income": Income,
-                    "IdFamily": Idfamily
-                });
-                const result = newuser.save();
-                if (result) { 
-                    res.json(user);
-                }
-                
-                else { res.status(404).send("error saving a user"); }
+            const newuser = new Users({
+                "Id": user.Id + 1,
+                "FullName": FullName,
+                "Password": Password,
+                "BudgetLimit": BudgetLimit,
+                "Email": Email,
+                "Role": Role,
+                "Income": Income,
+                "IdFamily": Idfamily
+            });
+            const result = newuser.save();
+            if (result) {
+                res.json(user);
+            }
+            else { res.status(404).send("error saving a user"); }
         });
     }
 }

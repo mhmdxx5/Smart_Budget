@@ -8,7 +8,7 @@ const usersSchema = new Schema({
     IdFamily: { type: Number },
     Id: { type: Number },
     Income: { type: Number },
-    IdExpenses:{ type: Object },
+    IdExpenses: { type: Object },
 }, { versionKey: false }, { collection: 'users' });
 const users = model('users', usersSchema);
 module.exports = users;
