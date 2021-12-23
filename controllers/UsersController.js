@@ -28,20 +28,13 @@ exports.UsersController = {
             })
             .catch(err => console.log(`Error Getting user from db:${err}`));
     },
+    
     getFamily(req, res) {
-        
-        Users.findOne({idfamily: req.params.id})
-            .then((users) => {
-                if (users) {
-                    console.log(users);
-                    res.json(users);
-                }
-                else {
-                    res.status(400).json("Wrong user id please enter correct id");
-                }
-            })
+        Users.find({})
+            .then(Users => { res.json(Users.filter(users => users.IdFamily == req.params.id)); })
             .catch(err => console.log(`Error Getting user from db:${err}`));
     },
+
     updateUser(req, res) {
         Users.updateOne({ id: req.params.id }, req.body)
             .then((result) => {

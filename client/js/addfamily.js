@@ -21,7 +21,7 @@ $(".btnRegister").click((event) => {
         };
         $.ajax({
             method: "POST",
-            url: `http://localhost:3000/api/Users`,
+            url: `https://first-ex1-2.herokuapp.com/api/Users`,
             dataType: "json",
             data: user,
             success: (idUser) => {
@@ -40,7 +40,7 @@ $(".btnRegister").click((event) => {
         };
         $.ajax({
             method: "POST",
-            url: `http://localhost:3000/api/Users/family`,
+            url: `https://first-ex1-2.herokuapp.com/api/Users/family`,
             dataType: "json",
             data: user,
             success: () => {

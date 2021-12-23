@@ -6,6 +6,7 @@ function recreateFamilyTable(familyMember) {
         '<th>FullName</th>' +
         '<th>Email</th>' +
         '<th>BudgetLimit</th>' +
+        '<th>Income</th>' +
         '</tr>' +
         '</thead>' +
         '<tbody>' +
@@ -18,6 +19,7 @@ function recreateFamilyTable(familyMember) {
             '<th scope="row">' + family.FullName + '</th>' +
             '<td>' + family.Email + '</td>' +
             '<td>' + family.BudgetLimit + '</td>' +
+            '<td>' + family.Income + '</td>' +
             '<td><button class="btn"><i class="fa fa-edit"></i></button></td>'+
             '<td><button class="btn"><i class="fa fa-trash"></i></button></td>'+
             '</tr>'
@@ -28,7 +30,7 @@ function recreateFamilyTable(familyMember) {
 $(() => {
     $.ajax({
         method: "GET",
-        url: `http://localhost:3000/api/Users/family/19`,
+        url:`https://first-ex1-2.herokuapp.com/api/Users/family/${id}`,
         success: (familyMember) => {
             recreateFamilyTable(familyMember);
         },
