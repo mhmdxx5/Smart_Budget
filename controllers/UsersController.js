@@ -8,7 +8,9 @@ exports.UsersController = {
     },
 
     deleteUser(req, res) {
+        console.log(req.params.id)
         Users.deleteOne({ id: req.params.id })
+        
             .then((result) => {
                 if (result.deletedCount > 0) { res.send(`user--${req.params.id}--deleted`); }
                 else { res.status(400).res.send(`user--${req.params.id}--not in the data`); }
