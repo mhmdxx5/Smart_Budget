@@ -4,20 +4,20 @@ exports.UsersController = {
     getUsers(req, res) {
         Users.find({})
             .then(Users => { res.json(Users); })
-            .catch(err => console.log(`Error Getting user from db:${err}`));
+            .catch(err => res.send(`Error Getting user from db:${err}`));
     },
 
     deleteUser(req, res) {
-        Users.deleteOne({ id: req.params.id })
+        Users.deleteOne({ Id: req.params.id })
             .then((result) => {
-                if (result.deletedCount > 0) { res.send(`user--${req.params.id}--deleted`); }
+                if (result.deletedCount > 0) { res.status(200).res.send(`user--${req.params.id}--deleted`); }
                 else { res.status(400).res.send(`user--${req.params.id}--not in the data`); }
             })
             .catch(() => res.status(400).send(`Error user ${req.params.id} not deleted`))
     },
 
     getUser(req, res) {
-        Users.findOne({ id: req.params.id })
+        Users.findOne({ Id: req.params.id })
             .then((user) => {
                 if (user) {
                     res.json(user);
@@ -26,24 +26,17 @@ exports.UsersController = {
                     res.status(400).json("Wrong user id please enter correct id");
                 }
             })
-            .catch(err => console.log(`Error Getting user from db:${err}`));
+            .catch(err => res.send(`Error Getting user from db:${err}`));
     },
+
     getFamily(req, res) {
-        
-        Users.find({},{ Idfamily: req.params.id })
-            .then((users) => {
-                if (users) {
-                    console.log(users);
-                    res.json(users);
-                }
-                else {
-                    res.status(400).json("Wrong user id please enter correct id");
-                }
-            })
-            .catch(err => console.log(`Error Getting user from db:${err}`));
+        Users.find({})
+            .then(Users => { res.json(Users.filter(users => users.IdFamily == req.params.id)); })
+            .catch(err => res.send(`Error Getting user from db:${err}`));
     },
+
     updateUser(req, res) {
-        Users.updateOne({ id: req.params.id }, req.body)
+        Users.updateOne({ Id: req.params.id }, req.body)
             .then((result) => {
                 if (result.matchedCount > 0) { res.send(`user ${req.params.id} Updated!`); }
                 else { res.status(400).send(`user ${req.params.id} Not in The DB!`); }
@@ -67,15 +60,15 @@ exports.UsersController = {
                 });
                 const result = newuser.save();
                 if (result) {
-                    res.json(user.IdFamily);
+                    res.json(newuser.IdFamily);
                 }
                 else { res.status(404).send("error saving a user"); }
             });
         });
     },
+
     addfamily(req, res) {//register
         const { FullName, Password, Email, Role, BudgetLimit, Income, Idfamily } = req.body;
-
         Users.findOne().sort('-Id').exec((err, user) => {
             const newuser = new Users({
                 "Id": user.Id + 1,
