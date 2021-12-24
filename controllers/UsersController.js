@@ -4,12 +4,12 @@ exports.UsersController = {
     getUsers(req, res) {
         Users.find({})
             .then(Users => { res.json(Users); })
-            .catch(err => console.log(`Error Getting user from db:${err}`));
+            .catch(err => res.send(`Error Getting user from db:${err}`));
     },
 
     deleteUser(req, res) {
-        Users.deleteOne({ Id: req.params.id }) 
-                .then((result) => {
+        Users.deleteOne({ Id: req.params.id })
+            .then((result) => {
                 if (result.deletedCount > 0) { res.status(200).res.send(`user--${req.params.id}--deleted`); }
                 else { res.status(400).res.send(`user--${req.params.id}--not in the data`); }
             })
@@ -26,13 +26,13 @@ exports.UsersController = {
                     res.status(400).json("Wrong user id please enter correct id");
                 }
             })
-            .catch(err => console.log(`Error Getting user from db:${err}`));
+            .catch(err => res.send(`Error Getting user from db:${err}`));
     },
-    
+
     getFamily(req, res) {
         Users.find({})
             .then(Users => { res.json(Users.filter(users => users.IdFamily == req.params.id)); })
-            .catch(err => console.log(`Error Getting user from db:${err}`));
+            .catch(err => res.send(`Error Getting user from db:${err}`));
     },
 
     updateUser(req, res) {
@@ -66,9 +66,9 @@ exports.UsersController = {
             });
         });
     },
+
     addfamily(req, res) {//register
         const { FullName, Password, Email, Role, BudgetLimit, Income, Idfamily } = req.body;
-
         Users.findOne().sort('-Id').exec((err, user) => {
             const newuser = new Users({
                 "Id": user.Id + 1,

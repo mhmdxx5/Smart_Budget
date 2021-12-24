@@ -52,8 +52,7 @@ $(".btnRegister").click((event) => {
         });
     }
 });
-$(document).on('click', '#currentWeb', ()=> {
-    console.log("hi")
+$(document).on('click', '#currentWeb', () => {
     location.href = `http://127.0.0.1:5501/client/homepage.html?id=${id}`;
 });
 
