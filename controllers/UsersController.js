@@ -36,7 +36,7 @@ exports.UsersController = {
     },
 
     updateUser(req, res) {
-        Users.updateOne({ id: req.params.id }, req.body)
+        Users.updateOne({ Id: req.params.id }, req.body)
             .then((result) => {
                 if (result.matchedCount > 0) { res.send(`user ${req.params.id} Updated!`); }
                 else { res.status(400).send(`user ${req.params.id} Not in The DB!`); }
